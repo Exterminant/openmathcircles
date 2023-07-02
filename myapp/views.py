@@ -31,4 +31,3 @@ def user_details(request, pk):
 
     return render(request, 'user_details.html', context)
 
-    return render(request, 'user_details.html', {})

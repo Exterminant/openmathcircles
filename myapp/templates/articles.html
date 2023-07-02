@@ -1,7 +1,7 @@
-<!-- myapp/templates/articles.html -->
 <!DOCTYPE html>
 <html>
 <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <title>Articles</title>
     <style>
         nav {
@@ -74,12 +74,17 @@
     <ul>
     {% for article in articles %}
         <li>
-            <h3>{{ article.title }}</h3>
-            <p>{{ article.brief_info }}</p>
-            <p><a href="{{ article.zoom_link }}">link</a></p>
-            <p>{{ article.date_of_event }}</p>
-            <p> Speaker - {{ article.user.name}} ({{ article.user.organization }})</p>
-            <a href="{% url 'article-detail' article.pk %}">Read More</a>
+            <div class="article-content">
+                <h3>{{ article.title }}</h3>
+                <div class="content">
+                    <div class="brief">{{ article.description|truncatechars:100 }}</div>
+                    <div class="full" style="display: none;">{{ article.description }}</div>
+                    <div class="full" style="display: none;">{{ article.recommended_literature }}</div>
+                </div>
+                <p>{{ article.date_of_event }}</p>
+                <p> Speaker - {{ article.user.name}} ({{ article.user.organization }})</p>
+                <p><a href="{{ article.zoom_link }}">link</a></p>
+            </div>
         </li>
     {% empty %}
         <li>No articles found.</li>
@@ -87,3 +92,13 @@
     </ul>
 </body>
 </html>
+
+<script>
+$(document).ready(function() {
+    $('.article-content').click(function() {
+        var content_div = $(this).find('.content');
+        content_div.find('.brief').toggle();
+        content_div.find('.full').toggle();
+    });
+});
+</script>
