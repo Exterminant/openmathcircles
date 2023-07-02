@@ -1,0 +1,65 @@
+<!-- myapp/templates/home.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home</title>
+    <style>
+        nav {
+            background-color: lightblue;
+            text-align: center;
+            padding: 10px;
+        }
+
+        nav ul {
+            display: inline-block;
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 10px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            display: inline-block;
+            padding: 5px 10px;
+            border-radius: 5px;
+            background-color: lightblue;
+        }
+
+        nav ul li a:hover {
+            background-color: white;
+            color: lightblue;
+        }
+        ul li {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 10px;
+            margin-bottom: 10px;
+            text-align: left;
+        }
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to the Home Page!</h1>
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/users/">Users</a></li>
+            <li><a href="/articles/">Articles</a></li>
+        </ul>
+    </nav>
+</body>
+</html>
